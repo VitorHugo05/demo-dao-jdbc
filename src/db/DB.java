@@ -36,14 +36,13 @@ public class DB {
 			}
 		}
 	}
-	
-	private static Properties loadProperties() {
-		try (FileInputStream fs = new FileInputStream("db.properties")) {
-			Properties props = new Properties();
-			props.load(fs);
-			return props;
-		}
-		catch (IOException e) {
+
+	private static Properties loadProperties()  {
+		try (FileInputStream fs = new FileInputStream("src/db.properties")){
+			Properties prop = new Properties();
+			prop.load(fs);
+			return prop;
+		} catch (IOException e) {
 			throw new DbException(e.getMessage());
 		}
 	}
